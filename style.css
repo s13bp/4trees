@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Special+Elite");
 *,
 *:before,
 *:after {
@@ -13,6 +14,7 @@
 
 body {
   height: 100%;
+  width: auto;
 }
 
 * {
@@ -39,6 +41,13 @@ body {
 h1, h2, h3 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+}
+
+.marquee {
+  width: 300px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background: #ccc;
 }
 
 .wrapper {
@@ -414,6 +423,7 @@ body {
 }
 
 .container .box .boxContent {
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -464,11 +474,86 @@ body {
           box-shadow: none;
 }
 
-.container .box:hover .icon,
-.container .box:hover .title,
+.container .box:hover .icon {
+  z-index: -99;
+}
+
+.container .box:hover .title {
+  position: absolute;
+  top: 0;
+  color: white;
+}
+
 .container .box:hover .desc {
   color: white;
   -webkit-transition: .3s all ease-in-out;
   transition: .3s all ease-in-out;
+  z-index: 1;
+  position: absolute;
+  height: 130px;
+  bottom: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-X: hidden;
+}
+
+body {
+  background: #804b8c;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  opacity: .5;
+  font-family: Arial;
+  margin-top: 50px;
+}
+
+.parent {
+  width: 100vw;
+  position: relative;
+  height: 104px;
+  margin: 20px auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  background-color: #BADBE1;
+}
+
+.parent .child {
+  width: auto;
+  margin: 0 20px;
+  display: inline-block;
+  -webkit-animation: marquee 10s linear infinite;
+          animation: marquee 10s linear infinite;
+  -webkit-transition: 10s ease-in-out;
+  transition: 10s ease-in-out;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: calc(-1835px + 608px);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: calc(-1835px + 608px);
+  }
+}
+
+.parent .child:hover {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
 }
 /*# sourceMappingURL=style.css.map */

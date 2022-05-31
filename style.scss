@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Special+Elite");
 *,
 *:before,
 *:after{
@@ -11,6 +12,7 @@
 }
 body{
     height: 100%;
+    width: auto;
 }
 * {
     scrollbar-width: 2px;
@@ -37,6 +39,12 @@ h1,h2,h3{
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
+.marquee {
+    width: 300px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background: #ccc;
+  }
 .wrapper{
   
     box-sizing: content-box;
@@ -50,6 +58,7 @@ h1,h2,h3{
     margin: auto;
    
 }
+
 .words{
     overflow: hidden;
     padding-right: 1em;
@@ -250,6 +259,7 @@ body{
     position: relative;
     box-shadow: 0px 0px 15px #979797;
     .boxContent{
+        position: absolute;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -285,12 +295,77 @@ body{
     &:hover{
       background: linear-gradient(130deg, $hoverBgColor 0%, $hoverBgColor2 100%);
       box-shadow: none;
-      .icon,
-      .title,
+      .icon{
+      
+          z-index: -99;
+      }
+      .title{
+          position: absolute;
+          top: 0;
+          color: white;
+      }
       .desc{
         color: white;
         transition: .3s all ease-in-out;
+        z-index: 1;
+        position: absolute;
+        height: 130px;
+        bottom: 0;
       }
     }
   }
 }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-X: hidden
+  }
+  body {
+    background: #804b8c
+  }
+  h1 {
+    text-align: center;
+    color: #fff;
+    opacity: .5;
+    font-family: Arial;
+    margin-top: 50px
+  }
+  .parent {
+    width: 100vw;
+    position: relative;
+    height: 104px;
+    margin: 20px auto;
+    
+    overflow-y: hidden;
+    white-space: nowrap;
+    background-color: #BADBE1;
+  }
+  
+  .parent .child {
+    width: auto;
+    margin: 0 20px;
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+    transition: 10s ease-in-out;
+  }
+  @keyframes marquee {
+    0% {
+      margin-left: 0;
+    }
+    100% {
+      margin-left: calc(-1835px + 608px);
+    }
+  }
+  
+  .parent .child:hover {
+      -webkit-animation-play-state: paused;
+      -moz-animation-play-state: paused;
+      -o-animation-play-state: paused;
+      animation-play-state: paused;
+  }
+  
+
+
+  
+  
